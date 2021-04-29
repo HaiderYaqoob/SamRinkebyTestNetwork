@@ -621,7 +621,7 @@
           @click="navigatePage('mainPage')"
         >
           <span
-            ><img
+            ><img id="curvedArrow"
               src="https://cdn4.iconfinder.com/data/icons/arrow-68/48/36-512.png"
               width="20px"
               :class="
@@ -631,7 +631,7 @@
               "
           /></span>
           <span
-            ><img
+            ><img id="curvedArrow"
               src="../assets/curvedArrow.png"
               width="20px"
               :class="
@@ -1710,6 +1710,13 @@ export default {
   margin-left: 220px;
 }
 
+@media only screen and (max-width: 360px) {
+  #curvedArrow{
+    // margin-right: 50px;
+    position: relative !important;
+    right: 50px !important;
+  }
+}
 @media only screen and (max-width: 900px) {
   .global-status {
     margin-top: -110px;
