@@ -1495,7 +1495,7 @@ export default {
       } else if (window.web3) {
         window.web3 = new Web3(window.web3.currentProvider)
       } else {
-        this.swap = 'true'
+        this.swap = 'false'
         window.alert(
           'Non-Ethereum browser detected. You should consider trying MetaMask!'
         )
