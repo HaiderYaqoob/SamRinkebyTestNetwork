@@ -1,5 +1,12 @@
 <template>
-  <div class="hello" :class="changeModeIndex === 'lightTheme' ? 'helloForLightTheme' : 'helloForDarkTheme'">
+  <div
+    class="hello" style="overflow: hidden"
+    :class="
+      changeModeIndex === 'lightTheme'
+        ? 'helloForLightTheme'
+        : 'helloForDarkTheme'
+    "
+  >
     <div class="side-bar" v-if="sidebar === 'true'">
       <br /><br />
       <span
@@ -27,18 +34,159 @@
       <h4 class="sidebarItems">
         <a href="/whoItWork" class="sidebarLinks">Who It Works</a>
       </h4>
+      <div
+        class="navbar-nav ml-auto istBtn"
+        id="color-btns"
+        :class="
+          changeModeIndex === 'lightTheme' ? 'displayInherit' : 'displayNone'
+        "
+      >
+        <button
+          class="change-color-site"
+          id="changeModeIndexMoon"
+          @click="changeIndexMode('darkTheme')"
+          :class="
+            changeModeIndex === 'lightTheme'
+              ? 'changeColorSiteForLight'
+              : 'changeColorSiteForDark'
+          "
+        >
+          <!-- @click="navigateMode('true')"
+               id="changeMode1"   CLASS k aagay likha huwa tah -->
+          <span
+            class="red-btn"
+            :class="
+              changeModeIndex === 'darkTheme' ? 'displayNone' : 'displayInherit'
+            "
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              focusable="false"
+              width="1em"
+              height="1em"
+              style="
+                -ms-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+              "
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 24 24"
+              class="iconify moon-icon"
+              data-icon="feather-moon"
+              data-inline="false"
+            >
+              <g
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z"
+                ></path>
+              </g></svg
+          ></span>
+        </button>
+      </div>
+      <div
+        class="navbar-nav ml-auto sndBtn"
+        id="color-btns"
+        :class="
+          changeModeIndex === 'lightTheme' ? 'displayNone' : 'displayInherit'
+        "
+      >
+        <button
+          class="change-color-site"
+          id="changeModeIndexMoon"
+          @click="changeIndexMode('lightTheme')"
+          :class="
+            changeModeIndex === 'lightTheme'
+              ? 'changeColorSiteForLight'
+              : 'changeColorSiteForDark'
+          "
+        >
+          <!-- @click="navigateMode('true')"
+               id="changeMode1"   CLASS k aagay likha huwa tah -->
+          <span
+            class="sun-like"
+            :class="
+              changeModeIndex === 'lightTheme'
+                ? 'displayNone'
+                : 'displayInherit'
+            "
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              focusable="false"
+              width="1em"
+              height="1em"
+              style="
+                -ms-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+              "
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 24 24"
+              class="iconify sun-icon"
+              data-icon="feather-sun"
+              data-inline="false"
+            >
+              <g
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path d="M12 1v2"></path>
+                <path d="M12 21v2"></path>
+                <path d="M4.22 4.22l1.42 1.42"></path>
+                <path d="M18.36 18.36l1.42 1.42"></path>
+                <path d="M1 12h2"></path>
+                <path d="M21 12h2"></path>
+                <path d="M4.22 19.78l1.42-1.42"></path>
+                <path d="M18.36 5.64l1.42-1.42"></path>
+              </g></svg
+          ></span>
+        </button>
+      </div>
     </div>
     <div v-if="page === 'buySell'">
       <div v-if="infoDiv === 'connected'">
-        <div class="accountAddress" :class="changeModeIndex === 'lightTheme' ? 'accountAddressForLightTheme' : 'accountAddressForDarkTheme'">
+        <div
+          class="accountAddress"
+          :class="
+            changeModeIndex === 'lightTheme'
+              ? 'accountAddressForLightTheme'
+              : 'accountAddressForDarkTheme'
+          "
+        >
           <span>{{ accountAddress }}</span>
         </div>
-        <div class="accountBalance" :class="changeModeIndex === 'lightTheme' ? 'accountBalanceForLightTheme' : 'accountBalanceForDarkTheme'">
+        <div
+          class="accountBalance"
+          :class="
+            changeModeIndex === 'lightTheme'
+              ? 'accountBalanceForLightTheme'
+              : 'accountBalanceForDarkTheme'
+          "
+        >
           <span>{{ withoutPoint }} ETH</span>
         </div>
       </div>
     </div>
-    <nav class="navbar navbar-expand-md navbar-light" :class="changeModeIndex === 'lightTheme' ? 'navbarForLightTheme' : 'navbarForDarkTheme'">
+    <nav
+      class="navbar navbar-expand-md navbar-light"
+      :class="
+        changeModeIndex === 'lightTheme'
+          ? 'navbarForLightTheme'
+          : 'navbarForDarkTheme'
+      "
+    >
       <a href="/" class="navbar-brand">
         <img
           class="logo-1"
@@ -51,10 +199,20 @@
           src="../assets/images/block360.png"
           style="position: absolute; width: 40px; top: 8px; left: 10px"
         />
-        <span class="logo-1" :class="changeModeIndex === 'lightTheme' ? 'logo1ForLightTheme' : 'logo1ForDarkTheme'" style="margin-left: 100px; font-weight: bold"
+        <span
+          class="logo-1"
+          :class="
+            changeModeIndex === 'lightTheme'
+              ? 'logo1ForLightTheme'
+              : 'logo1ForDarkTheme'
+          "
+          style="margin-left: 100px; font-weight: bold"
           >.</span
         >
-        <span class="logo-2" style="margin-left: 50px; font-weight: bold"
+        <span
+          class="logo-2"
+          style="margin-left: 50px"
+          :class="changeModeIndex === 'darkTheme' ? 'colorWhite' : 'colorBlack'"
           >Sam Collins</span
         >
       </a>
@@ -68,31 +226,90 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <i class="fas fa-search color-black" style="margin-right: 10px"></i>
-        <i @click="navigateSidebar('true')" class="fas fa-bars color-black"></i>
+        <i
+          class="fas fa-search"
+          :class="changeModeIndex === 'darkTheme' ? 'colorWhite' : 'colorBlack'"
+          style="margin-right: 10px"
+        ></i>
+        <i
+          @click="navigateSidebar('true')"
+          class="fas fa-bars"
+          :class="changeModeIndex === 'darkTheme' ? 'colorWhite' : 'colorBlack'"
+        ></i>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav" style="margin-left: 120px">
-          <router-link to="/indexes" class="nav-item nav-link active" :class="changeModeIndex === 'lightTheme' ? 'activeForLightTheme' : 'activeForDarkTheme'"
+          <router-link
+            to="/indexes"
+            class="nav-item nav-link active"
+            :class="
+              changeModeIndex === 'lightTheme'
+                ? 'activeForLightTheme'
+                : 'activeForDarkTheme'
+            "
             >Cryptocurrencies</router-link
           >
-          <router-link to="/whatWeOffer" class="nav-item nav-link" :class="changeModeIndex === 'lightTheme' ? 'navlinkForLightTheme' : 'navlinkForDarkTheme'"
+          <router-link
+            to="/whatWeOffer"
+            class="nav-item nav-link"
+            :class="
+              changeModeIndex === 'lightTheme'
+                ? 'navlinkForLightTheme'
+                : 'navlinkForDarkTheme'
+            "
             >What We Offer</router-link
           >
-          <router-link to="/whyBitcoin" class="nav-item nav-link" :class="changeModeIndex === 'lightTheme' ? 'navlinkForLightTheme' : 'navlinkForDarkTheme'"
+          <router-link
+            to="/whyBitcoin"
+            class="nav-item nav-link"
+            :class="
+              changeModeIndex === 'lightTheme'
+                ? 'navlinkForLightTheme'
+                : 'navlinkForDarkTheme'
+            "
             >Why Bitcoin</router-link
           >
-          <router-link to="/whoItWork" class="nav-item nav-link" :class="changeModeIndex === 'lightTheme' ? 'navlinkForLightTheme' : 'navlinkForDarkTheme'"
+          <router-link
+            to="/whoItWork"
+            class="nav-item nav-link"
+            :class="
+              changeModeIndex === 'lightTheme'
+                ? 'navlinkForLightTheme'
+                : 'navlinkForDarkTheme'
+            "
             >Who It Works</router-link
           >
         </div>
         <div class="navbar-nav ml-auto">
-          <div class="navbar-nav ml-auto istBtn" id="color-btns" :class="changeModeIndex === 'lightTheme' ? 'displayInherit' : 'displayNone'">
-            <button class="change-color-site" id="changeModeIndexMoon" @click="changeIndexMode('darkTheme')" :class="changeModeIndex === 'lightTheme' ? 'changeColorSiteForLight' : 'changeColorSiteForDark'">
+          <div
+            class="navbar-nav ml-auto istBtn"
+            id="color-btns"
+            :class="
+              changeModeIndex === 'lightTheme'
+                ? 'displayInherit'
+                : 'displayNone'
+            "
+          >
+            <button
+              class="change-color-site"
+              id="changeModeIndexMoon"
+              @click="changeIndexMode('darkTheme')"
+              :class="
+                changeModeIndex === 'lightTheme'
+                  ? 'changeColorSiteForLight'
+                  : 'changeColorSiteForDark'
+              "
+            >
               <!-- @click="navigateMode('true')"
                id="changeMode1"   CLASS k aagay likha huwa tah -->
-              <span class="red-btn" :class="changeModeIndex === 'darkTheme' ? 'displayNone' : 'displayInherit'"
+              <span
+                class="red-btn"
+                :class="
+                  changeModeIndex === 'darkTheme'
+                    ? 'displayNone'
+                    : 'displayInherit'
+                "
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -125,11 +342,34 @@
               ></span>
             </button>
           </div>
-          <div class="navbar-nav ml-auto sndBtn" id="color-btns" :class="changeModeIndex === 'lightTheme' ? 'displayNone' : 'displayInherit'">
-            <button class="change-color-site" id="changeModeIndexMoon" @click="changeIndexMode('lightTheme')" :class="changeModeIndex === 'lightTheme' ? 'changeColorSiteForLight' : 'changeColorSiteForDark'">
+          <div
+            class="navbar-nav ml-auto sndBtn"
+            id="color-btns"
+            :class="
+              changeModeIndex === 'lightTheme'
+                ? 'displayNone'
+                : 'displayInherit'
+            "
+          >
+            <button
+              class="change-color-site"
+              id="changeModeIndexMoon"
+              @click="changeIndexMode('lightTheme')"
+              :class="
+                changeModeIndex === 'lightTheme'
+                  ? 'changeColorSiteForLight'
+                  : 'changeColorSiteForDark'
+              "
+            >
               <!-- @click="navigateMode('true')"
                id="changeMode1"   CLASS k aagay likha huwa tah -->
-              <span class="sun-like" :class="changeModeIndex === 'lightTheme' ? 'displayNone' : 'displayInherit'"
+              <span
+                class="sun-like"
+                :class="
+                  changeModeIndex === 'lightTheme'
+                    ? 'displayNone'
+                    : 'displayInherit'
+                "
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -169,7 +409,12 @@
             </button>
           </div>
           <a href="/profile" class="nav-item nav-link"
-            ><i class="fas fa-user" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'"></i
+            ><i
+              class="fas fa-user"
+              :class="
+                changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+              "
+            ></i
           ></a>
         </div>
       </div>
@@ -179,16 +424,45 @@
     <div class="global-status">
       <p>
         <span class="global-status-heading">Market Cap: </span
-        ><span class="global-status-detail" :class="changeModeIndex === 'lightTheme' ? 'globalstatusDetailForLightTheme' : 'globalstatusDetailForDarkTheme'">$1,715,605,569,999</span
+        ><span
+          class="global-status-detail"
+          :class="
+            changeModeIndex === 'lightTheme'
+              ? 'globalstatusDetailForLightTheme'
+              : 'globalstatusDetailForDarkTheme'
+          "
+          >$1,715,605,569,999</span
         ><span class="dot">.</span
         ><span class="global-status-heading">24h Vol: </span
-        ><span class="global-status-detail" :class="changeModeIndex === 'lightTheme' ? 'globalstatusDetailForLightTheme' : 'globalstatusDetailForDarkTheme'">$184,345,540,849</span
+        ><span
+          class="global-status-detail"
+          :class="
+            changeModeIndex === 'lightTheme'
+              ? 'globalstatusDetailForLightTheme'
+              : 'globalstatusDetailForDarkTheme'
+          "
+          >$184,345,540,849</span
         ><span class="dot">.</span
         ><span class="global-status-heading">BTC Dominance: </span
-        ><span class="global-status-detail" :class="changeModeIndex === 'lightTheme' ? 'globalstatusDetailForLightTheme' : 'globalstatusDetailForDarkTheme'">61.5%</span
+        ><span
+          class="global-status-detail"
+          :class="
+            changeModeIndex === 'lightTheme'
+              ? 'globalstatusDetailForLightTheme'
+              : 'globalstatusDetailForDarkTheme'
+          "
+          >61.5%</span
         ><span class="dot">.</span
         ><span class="global-status-heading">Cryptocurrencies: </span
-        ><span class="global-status-detail" :class="changeModeIndex === 'lightTheme' ? 'globalstatusDetailForLightTheme' : 'globalstatusDetailForDarkTheme'">8,532</span>
+        ><span
+          class="global-status-detail"
+          :class="
+            changeModeIndex === 'lightTheme'
+              ? 'globalstatusDetailForLightTheme'
+              : 'globalstatusDetailForDarkTheme'
+          "
+          >8,532</span
+        >
       </p>
       <hr class="divider" />
     </div>
@@ -201,13 +475,21 @@
         height="100px"
       /><span style="font-size: 30px; margin-left: 20px">Block360</span -->
         <img
-          class="add-img" id="lightPageBanner" :class="changeModeIndex === 'lightTheme' ? 'heroImgForLight' : 'displayNone'"
+          class="add-img"
+          id="lightPageBanner"
+          :class="
+            changeModeIndex === 'lightTheme' ? 'heroImgForLight' : 'displayNone'
+          "
           src="http://www.globalethicalbanking.com/wp-content/uploads/2020/07/23-zoya.jpg"
           width="1000px"
           height="250px"
         />
         <img
-          class="add-img2" id="darkPageBanner" :class="changeModeIndex === 'lightTheme' ? 'displayNone' : 'displayInherit'"
+          class="add-img2"
+          id="darkPageBanner"
+          :class="
+            changeModeIndex === 'lightTheme' ? 'displayNone' : 'displayInherit'
+          "
           src="https://i.graphicmama.com/blog/wp-content/uploads/2019/11/01141506/black-web-banner-design.jpg"
           width="1000px"
           height="250px"
@@ -216,8 +498,12 @@
         <br /><br />
       </div>
       <div class="table-main-div">
-        <table class="table" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'">
-
+        <table
+          class="table"
+          :class="
+            changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+          "
+        >
           <thead style="position: sticky">
             <tr>
               <th>#</th>
@@ -336,12 +622,22 @@
           <span
             ><img
               src="https://cdn4.iconfinder.com/data/icons/arrow-68/48/36-512.png"
-              width="20px" :class="changeModeIndex === 'lightTheme' ? 'displayInherit' : 'displayNone'"
+              width="20px"
+              :class="
+                changeModeIndex === 'lightTheme'
+                  ? 'displayInherit'
+                  : 'displayNone'
+              "
           /></span>
           <span
             ><img
               src="../assets/curvedArrow.png"
-              width="20px" :class="changeModeIndex === 'lightTheme' ? 'displayNone' : 'displayInherit'"
+              width="20px"
+              :class="
+                changeModeIndex === 'lightTheme'
+                  ? 'displayNone'
+                  : 'displayInherit'
+              "
           /></span>
         </div>
         <div class="success" v-if="transactionSuccess === 'true'">
@@ -351,22 +647,50 @@
           /></a>
           <img class="successImg" src="../assets/images/successTick.png" />
           <h4 class="successHeading">Congratulations</h4>
-          <p class="successSubHeading" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorBlack'">
+          <p
+            class="successSubHeading"
+            :class="
+              changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorBlack'
+            "
+          >
             Your Transaction is successfully completed.
           </p>
           <p class="successHash">
-            <span class="successTransactionText" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorBlack'">Transaction Hash: </span
-            ><span class="successHashNumber" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorBlack'">{{ transactionHash }}</span>
+            <span
+              class="successTransactionText"
+              :class="
+                changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorBlack'
+              "
+              >Transaction Hash: </span
+            ><span
+              class="successHashNumber"
+              :class="
+                changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorBlack'
+              "
+              >{{ transactionHash }}</span
+            >
           </p>
           <a href="/indexes"><button class="successBtn">Home</button></a>
         </div>
         <div class="checkout">
-          <h5 class="about-heading" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'">
+          <h5
+            class="about-heading"
+            :class="
+              changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+            "
+          >
             <img :src="furtherCoinDetail.image.small" />
             {{ furtherCoinDetail.name }}
             <span class="coinSymbol">({{ furtherCoinDetail.symbol }})</span>
           </h5>
-          <div class="about-sub-heading" :class="changeModeIndex === 'lightTheme' ? 'colorForAboutSubHeading' : 'colorWhite'">
+          <div
+            class="about-sub-heading"
+            :class="
+              changeModeIndex === 'lightTheme'
+                ? 'colorForAboutSubHeading'
+                : 'colorWhite'
+            "
+          >
             <img
               src="../assets/images/heart.png"
               class="interestHeart"
@@ -376,7 +700,13 @@
             <p>
               Market Cap:
               <span
-                ><span class="rankBox" :class="changeModeIndex === 'lightTheme' ? 'stylingForRankBoxLightTheme' : 'stylingForRankBoxDarkTheme'"
+                ><span
+                  class="rankBox"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'stylingForRankBoxLightTheme'
+                      : 'stylingForRankBoxDarkTheme'
+                  "
                   >Rank #{{ furtherCoinDetail.market_cap_rank }}</span
                 ></span
               >
@@ -384,44 +714,139 @@
             <p>
               Website:
               <span style="margin-left: 34px"
-                ><span class="infoTokens" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'">{{
-                  furtherCoinDetail.links.homepage[0]
-                }}</span>
-                <span class="infoTokens" style="margin-left: 2px" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'">{{
-                  furtherCoinDetail.links.announcement_url[0]
-                }}</span></span
+                ><span
+                  class="infoTokens"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
+                  >{{ furtherCoinDetail.links.homepage[0] }}</span
+                >
+                <span
+                  class="infoTokens"
+                  style="margin-left: 2px"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
+                  >{{ furtherCoinDetail.links.announcement_url[0] }}</span
+                ></span
               >
             </p>
             <p>
               Explorers:
               <span style="margin-left: 24px"
-                ><span class="infoTokens" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'">Etherscan</span>
-                <span class="infoTokens" style="margin-left: 2px" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'">Ethplorer</span></span
+                ><span
+                  class="infoTokens"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
+                  >Etherscan</span
+                >
+                <span
+                  class="infoTokens"
+                  style="margin-left: 2px"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
+                  >Ethplorer</span
+                ></span
               >
             </p>
             <p>
               Contract:
               <span style="margin-left: 30px"
-                ><span class="infoTokens" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'">{{
-                  furtherCoinDetail.platforms.ethereum
-                }}</span></span
+                ><span
+                  class="infoTokens"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
+                  >{{ furtherCoinDetail.platforms.ethereum }}</span
+                ></span
               >
             </p>
             <p>
               Community:
               <span style="margin-left: 12px"
-                ><span class="infoTokens" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'">Twitter</span
-                ><span class="infoTokens" style="margin-left: 2px" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'">discordapp.com</span></span
+                ><span
+                  class="infoTokens"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
+                  >Twitter</span
+                ><span
+                  class="infoTokens"
+                  style="margin-left: 2px"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
+                  >discordapp.com</span
+                ></span
               >
             </p>
             <p>
               Tags:
               <span style="margin-left: 53px"
-                ><span class="infoTokens" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'" style="color: black">Token</span>
-                <span class="infoTokens" style="margin-left: 2px" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'">Index</span>
-                <span class="infoTokens" style="margin-left: 2px" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'">DeFi Index</span>
-                <span class="infoTokens" style="margin-left: 2px" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'">TokenSets</span>
-                <span class="infoTokens" style="margin-left: 2px" :class="changeModeIndex === 'lightTheme' ? 'infoTokensForLightTheme' : 'infoTokensForDarkTheme'"
+                ><span
+                  class="infoTokens"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
+                  style="color: black"
+                  >Token</span
+                >
+                <span
+                  class="infoTokens"
+                  style="margin-left: 2px"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
+                  >Index</span
+                >
+                <span
+                  class="infoTokens"
+                  style="margin-left: 2px"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
+                  >DeFi Index</span
+                >
+                <span
+                  class="infoTokens"
+                  style="margin-left: 2px"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
+                  >TokenSets</span
+                >
+                <span
+                  class="infoTokens"
+                  style="margin-left: 2px"
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'infoTokensForLightTheme'
+                      : 'infoTokensForDarkTheme'
+                  "
                   >Decentralized Finance (DeFi)</span
                 ></span
               >
@@ -441,7 +866,13 @@
           <div class="checkout-div">
             <br />
             <h6 class="headMarketLimit">
-              <span class="market" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'">Limit</span><span class="limit">Market</span
+              <span
+                class="market"
+                :class="
+                  changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+                "
+                >Limit</span
+              ><span class="limit">Market</span
               ><span class="svg"
                 ><svg
                   @click="navigatePage('mainPage')"
@@ -450,18 +881,40 @@
                   height="16"
                   fill="none"
                   viewBox="0 0 16 16"
-                  style="cursor: pointer;"
+                  style="cursor: pointer"
                 >
                   <path
-                     :class="changeModeIndex === 'lightTheme' ? 'svgPointerForLightTheme' : 'svgPointerForDarkTheme'"
+                    :class="
+                      changeModeIndex === 'lightTheme'
+                        ? 'svgPointerForLightTheme'
+                        : 'svgPointerForDarkTheme'
+                    "
                     d="M15 3h-4c-.6 0-1 .4-1 1s.4 1 1 1h4c.6 0 1-.4 1-1s-.4-1-1-1zM5 1c-1.3 0-2.4.9-2.8 2H1c-.6 0-1 .4-1 1s.4 1 1 1h1.2C2.6 6.1 3.7 7 5 7c1.7 0 3-1.3 3-3S6.7 1 5 1zM1 13h4c.6 0 1-.4 1-1s-.4-1-1-1H1c-.6 0-1 .4-1 1s.4 1 1 1zM15 11h-1.2c-.4-1.2-1.5-2-2.8-2-1.7 0-3 1.3-3 3s1.3 3 3 3c1.3 0 2.4-.9 2.8-2H15c.6 0 1-.4 1-1s-.4-1-1-1z"
                   ></path></svg
               ></span>
             </h6>
             <br />
-            <hr class="divider" :class="changeModeIndex === 'lightTheme' ? 'buyselldividerForLightTheme' : 'buyselldividerForDarkTheme'"/>
-            <span class="youPay" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'">You Pay</span><br /><br />
-            <h2 class="chooseToken" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'">
+            <hr
+              class="divider"
+              :class="
+                changeModeIndex === 'lightTheme'
+                  ? 'buyselldividerForLightTheme'
+                  : 'buyselldividerForDarkTheme'
+              "
+            />
+            <span
+              class="youPay"
+              :class="
+                changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+              "
+              >You Pay</span
+            ><br /><br />
+            <h2
+              class="chooseToken"
+              :class="
+                changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+              "
+            >
               Wrapped ether
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -470,7 +923,12 @@
                 fill="none"
                 viewBox="0 0 11 7"
               >
-                <path :class="changeModeIndex === 'lightTheme' ? 'svgPointerForLightTheme' : 'svgPointerForDarkTheme'"
+                <path
+                  :class="
+                    changeModeIndex === 'lightTheme'
+                      ? 'svgPointerForLightTheme'
+                      : 'svgPointerForDarkTheme'
+                  "
                   fill="#0A1A5D"
                   d="M5.4 6.9L0 1.5 1.4.1l4 4 4-4 1.4 1.4-5.4 5.4z"
                 ></path>
@@ -488,7 +946,7 @@
             /> -->
             <!-- <input
               v-if="connectWallet === true" -->
-              <input
+            <input
               type="number"
               class="payFeild"
               placeholder="0.01"
@@ -496,7 +954,14 @@
               @keypress="tokenPrice"
             />
             <br /><br />
-            <div class="youReceive-div" :class="changeModeIndex === 'lightTheme' ? 'youReceive-divForLightTheme' : 'youReceive-divForDarkTheme'">
+            <div
+              class="youReceive-div"
+              :class="
+                changeModeIndex === 'lightTheme'
+                  ? 'youReceive-divForLightTheme'
+                  : 'youReceive-divForDarkTheme'
+              "
+            >
               <div class="translator-icon-div">
                 <span
                   ><span
@@ -515,11 +980,26 @@
                 ></span>
               </div>
               <br />
-              <span class="oneTokenPrice" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'"
+              <span
+                class="oneTokenPrice"
+                :class="
+                  changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+                "
                 >One Dai Price: {{ oneTokenPrice }}</span
               >
-              <span class="youReceive" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'">You Receive</span><br /><br />
-              <h3 class="coinName" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'">
+              <span
+                class="youReceive"
+                :class="
+                  changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+                "
+                >You Receive</span
+              ><br /><br />
+              <h3
+                class="coinName"
+                :class="
+                  changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+                "
+              >
                 {{ furtherCoinDetail.symbol }}
                 <span
                   ><svg
@@ -529,7 +1009,12 @@
                     fill="none"
                     viewBox="0 0 11 7"
                   >
-                    <path :class="changeModeIndex === 'lightTheme' ? 'svgPointerForLightTheme' : 'svgPointerForDarkTheme'"
+                    <path
+                      :class="
+                        changeModeIndex === 'lightTheme'
+                          ? 'svgPointerForLightTheme'
+                          : 'svgPointerForDarkTheme'
+                      "
                       fill="#0A1A5D"
                       d="M5.4 6.9L0 1.5 1.4.1l4 4 4-4 1.4 1.4-5.4 5.4z"
                     ></path></svg></span
@@ -567,16 +1052,51 @@
       </div>
     </div>
     <br /><br /><br /><br /><br /><br /><br />
-    <div class="footer" :class="changeModeIndex === 'lightTheme' ? 'backgroundBrown' : 'backgroundWhite'">
+    <div
+      class="footer"
+      :class="
+        changeModeIndex === 'lightTheme' ? 'backgroundBrown' : 'backgroundWhite'
+      "
+    >
       <h6>
-        <span class="footerText" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'">Disclaimer</span><span class="footer-dot"> . </span
-        ><span class="footerText" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'">Terms of Service</span><span class="footer-dot"> . </span
-        ><span class="footerText" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'">Privacy Policy</span>
+        <span
+          class="footerText"
+          :class="
+            changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+          "
+          >Disclaimer</span
+        ><span class="footer-dot"> . </span
+        ><span
+          class="footerText"
+          :class="
+            changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+          "
+          >Terms of Service</span
+        ><span class="footer-dot"> . </span
+        ><span
+          class="footerText"
+          :class="
+            changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+          "
+          >Privacy Policy</span
+        >
       </h6>
       <h6>
         <!-- <span>@</span> -->
-        <span class="footerText" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'">2021 Sam Collins<span class="footer-dot"> . </span></span
-        ><span class="footerText" :class="changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'"> All Rights Reserved</span>
+        <span
+          class="footerText"
+          :class="
+            changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+          "
+          >2021 Sam Collins<span class="footer-dot"> . </span></span
+        ><span
+          class="footerText"
+          :class="
+            changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
+          "
+        >
+          All Rights Reserved</span
+        >
       </h6>
     </div>
   </div>
@@ -1057,10 +1577,10 @@ export default {
   font-size: 13px;
 }
 
-.globalstatusDetailForLightTheme{
+.globalstatusDetailForLightTheme {
   color: blue;
 }
-.globalstatusDetailForDarkTheme{
+.globalstatusDetailForDarkTheme {
   color: rgb(0, 187, 212);
 }
 .global-status-detail {
@@ -1096,7 +1616,7 @@ export default {
   width: 90%;
   border: none;
   // border-bottom: 1px solid rgb(255, 255, 255);
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .coinSymbol {
@@ -1122,10 +1642,10 @@ export default {
 .loading-div {
   margin-bottom: 79px;
 }
-.changeColorSiteForLight{
+.changeColorSiteForLight {
   background-color: white;
 }
-.changeColorSiteForDark{
+.changeColorSiteForDark {
   background-color: #212121;
 }
 // change color site
@@ -1168,10 +1688,10 @@ export default {
     display: none;
   }
 }
-.logo1ForLightTheme{
+.logo1ForLightTheme {
   color: white !important;
 }
-.logo1ForDarkTheme{
+.logo1ForDarkTheme {
   color: #212121 !important;
 }
 
@@ -1187,8 +1707,17 @@ export default {
 }
 
 @media only screen and (max-width: 900px) {
+  .global-status {
+    margin-top: -70px;
+  }
   .logo-1 {
     display: none;
+  }
+  .change-color-site {
+    float: left;
+    margin-left: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
   }
   .navbar {
     width: 100%;
@@ -1197,11 +1726,28 @@ export default {
   .add-img {
     width: 70%;
     height: 150px;
+    position: relative;
+    left: -170px;
+  }
+  .add-img2 {
+    width: 70%;
+    height: 200px;
+    position: relative;
+    left: -170px;
+    border-radius: 5px;
+    margin-top: -20px;
   }
 
   .checkout {
-    width: 100%;
-    margin-left: -160px;
+    overflow: auto;
+    width: 110%;
+    margin-top: 430px;
+    margin-left: 30px;
+  }
+  .checkoutInfo {
+    position: relative;
+    top: -130px;
+    left: -90px;
   }
   .checkout-div {
     width: 90%;
