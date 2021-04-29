@@ -174,7 +174,7 @@
         </div>
       </div>
     </nav>
-    <!-- <hr class="divide" /> -->
+    <hr class="divide" />
     <br /><br /><br /><br />
     <div class="global-status">
       <p>
@@ -850,8 +850,8 @@ export default {
           this.finalPrice = totalPriceManua.match(/[0-9]+.[0-9]/).toString()
           console.log('totalPrice ', this.finalPrice)
         } else {
-          // console.log('placedAmount', this.placedAmount)
-          // alert('Please write in this form / 1 , 0.1 , 0.01 , 0.001 , 0.0001 /')
+          console.log('placedAmount', this.placedAmount)
+          this.$toasted.error('Please write in this form / 1 , 0.1 , 0.01 , 0.001 , 0.0001 /')
         }
 
         const trade = new Trade(route, new TokenAmount(weth, this.keyPressedLast), TradeType.EXACT_INPUT)
@@ -878,7 +878,6 @@ export default {
         this.value = forValue.toString()
         console.log('value with string: ', this.value)
 
-        console.log('ddddddddddddddddddddddddddddddddddddddd', this.withoutPoint)
         if (this.ethBalance === '0') {
           this.swap = 'false'
         } else {
