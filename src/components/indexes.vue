@@ -1416,10 +1416,12 @@ export default {
       if (this.transactionSuccess === 'false') {
         setTimeout(() => {
           this.$toasted.error('Request Timeout!')
+          this.swap = 'true'
         }, 40000)
       }
       if (this.placedAmount === '') {
         this.$toasted.error('Please first enter the amount.')
+        this.swap = 'true'
       } else {
         if (this.placedAmount > this.withoutPoint && !this.placedAmount === '9') {
         // if (this.placedAmount > this.withoutPoint) {
@@ -1493,6 +1495,7 @@ export default {
       } else if (window.web3) {
         window.web3 = new Web3(window.web3.currentProvider)
       } else {
+        this.swap = 'true'
         window.alert(
           'Non-Ethereum browser detected. You should consider trying MetaMask!'
         )

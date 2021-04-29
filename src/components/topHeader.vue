@@ -494,9 +494,4 @@ export default {
   }
 }
 
-@media only screen and (max-width: 380px) {
-  #mobile-logo-heading {
-    display: none;
-  }
-}
 </style>
