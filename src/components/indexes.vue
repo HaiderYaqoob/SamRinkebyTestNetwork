@@ -212,6 +212,7 @@
         <span
           class="logo-2"
           style="margin-left: 50px"
+          id="marginTopMinusFive"
           :class="changeModeIndex === 'darkTheme' ? 'colorWhite' : 'colorBlack'"
           >Sam Collins</span
         >
@@ -227,12 +228,12 @@
         aria-label="Toggle navigation"
       >
         <i
-          class="fas fa-search"
+          class="fas fa-search" id="marginTopMinusFive"
           :class="changeModeIndex === 'darkTheme' ? 'colorWhite' : 'colorBlack'"
           style="margin-right: 10px"
         ></i>
         <i
-          @click="navigateSidebar('true')"
+          @click="navigateSidebar('true')" id="marginTopMinusFive"
           class="fas fa-bars"
           :class="changeModeIndex === 'darkTheme' ? 'colorWhite' : 'colorBlack'"
         ></i>
@@ -1708,10 +1709,15 @@ export default {
 
 @media only screen and (max-width: 900px) {
   .global-status {
-    margin-top: -70px;
+    margin-top: -110px;
+    margin-bottom: -20px;
   }
   .logo-1 {
     display: none;
+  }
+  #marginTopMinusFive{
+    position: relative;
+    top: -5px;
   }
   .change-color-site {
     float: left;

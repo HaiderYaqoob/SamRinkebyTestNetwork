@@ -489,8 +489,8 @@ export default {
 @media only screen and (max-width: 465px) {
   .change-color-site{
     width: 95%;
-    margin-left: -16px;
-    margin-top: 20px;
+    margin-left: 2px;
+    margin-top: 15px;
   }
 }
 
