@@ -411,7 +411,7 @@
           </div>
           <a href="/profile" class="nav-item nav-link"
             ><i
-              class="fas fa-user"
+              class="fas fa-user" style="position:relative;top:7px;"
               :class="
                 changeModeIndex === 'lightTheme' ? 'colorBlack' : 'colorWhite'
               "
