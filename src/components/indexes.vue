@@ -1501,30 +1501,43 @@ export default {
         )
       }
       const web3 = window.web3
-      const accounts = await web3.eth.getAccounts()
-      this.accountAddress = accounts[0]
-      console.log('accounts', this.accountAddress)
-
-      this.ethBalance = await web3.eth.getBalance(this.accountAddress)
-      console.log('ethBalance', this.ethBalance)
-      if (this.ethBalance.length === 19) {
-        this.withoutPoint = this.ethBalance.substring(0, 1)
-        console.log('balance without point', this.withoutPoint)
-      } else if (this.ethBalance.length === 20) {
-        this.withoutPoint = this.ethBalance.substring(0, 2)
-        console.log('balance without point', this.withoutPoint)
-      } else if (this.ethBalance.length === 21) {
-        this.withoutPoint = this.ethBalance.substring(0, 3)
-        console.log('balance without point', this.withoutPoint)
-      }
-
-      this.connectWallet = true
-      this.infoDiv = 'connected'
-      this.swap = 'true'
-
-      // Load Token
       this.networkId = await web3.eth.net.getId()
       console.log('networkId', this.networkId)
+
+      if (this.networkId !== 4) {
+        this.$toasted.error('Please login with Rinkeby test network')
+        this.swap = 'false'
+      } else if (this.networkId === 4) {
+        const accounts = await web3.eth.getAccounts()
+        this.accountAddress = accounts[0]
+        console.log('accounts', this.accountAddress)
+
+        this.ethBalance = await web3.eth.getBalance(this.accountAddress)
+        console.log('ethBalance', this.ethBalance)
+        if (this.ethBalance.length === 19) {
+          this.withoutPoint = this.ethBalance.substring(0, 1)
+          console.log('balance without point', this.withoutPoint)
+        } else if (this.ethBalance.length === 20) {
+          this.withoutPoint = this.ethBalance.substring(0, 2)
+          console.log('balance without point', this.withoutPoint)
+        } else if (this.ethBalance.length === 21) {
+          this.withoutPoint = this.ethBalance.substring(0, 3)
+          console.log('balance without point', this.withoutPoint)
+        }
+
+        this.connectWallet = true
+        this.infoDiv = 'connected'
+        this.swap = 'true'
+
+        // Load Token
+
+        // const chainId = ChainId.MAINNET
+        // console.log(chainId)
+        // const tokenAddress = '0x6B175474E89094C44Da98b954EedeAC495271d0F'
+
+        // const tokenData = await Fetcher.fetchTokenData(chainId, tokenAddress)
+        // console.log('tokenData', tokenData)
+      }
     }
   },
   mounted () {
@@ -1703,13 +1716,19 @@ export default {
   color: white;
 }
 
+.add-img {
+  margin-top: -16px;
+}
 .add-img2 {
   width: 70%;
+  margin-top: -16px;
   height: 240px;
   border-radius: 13px;
   margin-left: 220px;
 }
-
+#curvedArrow{
+  margin-top: -40px;
+}
 @media only screen and (max-width: 360px) {
   #curvedArrow{
     // margin-right: 50px;
