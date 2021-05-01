@@ -1717,11 +1717,11 @@ export default {
 }
 
 .add-img {
-  margin-top: -30px;
+  margin-top: -60px;
 }
 .add-img2 {
   width: 70%;
-  margin-top: -30px;
+  margin-top: -60px;
   height: 240px;
   border-radius: 13px;
   margin-left: 220px;
